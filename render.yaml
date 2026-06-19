@@ -2,9 +2,8 @@ services:
   - type: web
     name: carburantes-control
     runtime: node
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
-    nodeVersion: 20.11.0
+    buildCommand: npm install && npm run build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public
+    startCommand: node .next/standalone/server.js
     envVars:
       - key: NODE_ENV
         value: production
@@ -13,6 +12,8 @@ services:
       - key: NEXT_PUBLIC_POSTGREST_ANON_KEY
         sync: false
       - key: NEXT_PUBLIC_USE_MOCK_DB
-        value: false
+        value: "false"
       - key: PORT
-        value: 3000
+        value: "3000"
+      - key: HOSTNAME
+        value: "0.0.0.0"
