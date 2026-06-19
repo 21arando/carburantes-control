@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: carburantes-control
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_POSTGREST_URL
+        sync: false
+      - key: NEXT_PUBLIC_POSTGREST_ANON_KEY
+        sync: false
+      - key: NEXT_PUBLIC_USE_MOCK_DB
+        value: false
+      - key: PORT
+        value: 3000
