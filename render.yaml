@@ -4,6 +4,7 @@ services:
     runtime: node
     buildCommand: npm install && npm run build
     startCommand: npm run start
+    nodeVersion: 20.11.0
     envVars:
       - key: NODE_ENV
         value: production
